@@ -3,7 +3,9 @@ import streamlit as st
 import random       # randommly generate password
 import string       # The string module contains constants for different sets of characters, which are useful when creating a strong password.
 
-st.header("✨ ✨   Password Strength Meter ✨ ✨ ")
+st.set_page_config(page_title="Password Strength Meter", page_icon="🔐")
+
+st.header("✨ ✨ 🔐 Password Strength Meter ✨ ✨ ")
 
 st.markdown("<br>", unsafe_allow_html=True) # Adds a simple line break.
 
@@ -59,7 +61,7 @@ def generate_strong_password():
 
 
 # Get user input
-password = st.text_input("Please Enter your Password: ")
+password = st.text_input(":blue[Please Enter your Password: ]")
 st.markdown("<br>", unsafe_allow_html=True) # Adds a simple line break.
 
 
@@ -67,12 +69,29 @@ col1, col2 = st.columns(2)
 
 # Button for checking password strength
 with col1 :
-    if st.button("Check Password Strength") :
+    if st.button("💪 Check Password Strength") :
         check_password_strength(password)
 
 
 # Button for suggesting a strong password
 with col2 :
-    if st.button("Suggest Strong Password"):
+    if st.button(" 🔥 Suggest Strong Password"):
         suggested_password = generate_strong_password()
         st.write(f"Suggested Strong Password: {suggested_password}")
+
+
+
+# Custom background color using CSS
+st.markdown("""
+    <style>
+    body {
+        background-color: #87CEEB;
+          
+    }
+    .stApp {    
+        background-color: #87CEEB;
+        color:blue
+    
+    }
+    </style>
+""", unsafe_allow_html=True)
